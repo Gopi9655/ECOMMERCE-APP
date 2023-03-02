@@ -22,16 +22,16 @@ function App() {
      setcart(item)
   }
   const handleUpdateqty = async (productID,quantity) => {
-    const{cart} = await commerce.cart.update(productID,{quantity})
+    const cart = await commerce.cart.update(productID,{quantity})
     setcart(cart)
   }
 
   const handleEmptycart = async () => {
-    const {cart} = await commerce.cart.empty();
+    const  cart = await commerce.cart.empty();
   setcart(cart)
   }
-  const handleRemovefromCart = async(productID) => {
-    const {cart} = await commerce.cart.remove(productID)
+  const handleRemovefromCart = async (productID) => {
+    const cart = await commerce.cart.remove(productID)
     setcart(cart)
   }
 
@@ -43,14 +43,16 @@ function App() {
   
   },[])
   console.log(products)
-  console.log([cart])
+  console.log(cart)
   return ( 
     <Router>
         <div className="App">
-        <Navbar totalitem={cart.total_items} />
+        <Navbar totalitem = {cart.total_items} />
         <Routes>
         <Route  path='/'  element={<Products  products={products} Onaddtocart = {handleaddtocart}/>} />
-        <Route  path='/cart' element={<Cart cart={cart}  handleUpdateqty={handleUpdateqty} handleEmptycart={handleEmptycart} handleRemovefromCart={handleRemovefromCart}/>}/> 
+        
+        <Route  path='/cart' element={<Cart cart = {cart}  handleUpdateqty={handleUpdateqty} handleEmptycart={handleEmptycart} handleRemovefromCart={handleRemovefromCart}/>}/> 
+        <Route path='/checkout' element={<Checkout />} />
         </Routes>
         </div>
     </Router>
