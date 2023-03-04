@@ -6,6 +6,7 @@ import { Products } from './Components/Products/Products';
 import { commerce } from './lib/commerce';
 import { Cart } from './Components/Cart/Cart';
 import { BrowserRouter as Router,Route,Routes } from 'react-router-dom';
+import { Checkout } from './Components/checkoutform/checkout/Checkout';
 function App() {
   const [products,setproducts] = useState([]);
   const [cart,setcart] = useState([])
@@ -44,6 +45,7 @@ function App() {
   },[])
   console.log(products)
   console.log(cart)
+  console.log(Checkout)
   return ( 
     <Router>
         <div className="App">
@@ -52,7 +54,8 @@ function App() {
         <Route  path='/'  element={<Products  products={products} Onaddtocart = {handleaddtocart}/>} />
         
         <Route  path='/cart' element={<Cart cart = {cart}  handleUpdateqty={handleUpdateqty} handleEmptycart={handleEmptycart} handleRemovefromCart={handleRemovefromCart}/>}/> 
-        <Route path='/checkout' element={<Checkout />} />
+        <Route  path='/checkout' element={<Checkout />} />
+        
         </Routes>
         </div>
     </Router>
