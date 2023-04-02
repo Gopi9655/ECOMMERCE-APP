@@ -9,7 +9,17 @@ export default makeStyles((theme) => ({
     [theme.breakpoints.up('sm')]: {
       width: `calc(100% - ${drawerWidth}px)`,
       marginLeft: drawerWidth,
-      backgroundColor:"#8cc3e3"
+      background: 'linear-gradient(to right,#ffafbd ,#ffc3a0)',
+      zIndex: theme.zIndex.drawer + 1,
+    },
+  },
+  toolbar: {
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    padding: theme.spacing(0, 1),
+    [theme.breakpoints.up('sm')]: {
+      padding: theme.spacing(0, 3),
     },
   },
   title: {
@@ -65,5 +75,74 @@ export default makeStyles((theme) => ({
     [theme.breakpoints.up('md')]: {
       width: '20ch',
     },
+  },
+  navLinks: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    width: '25%',
+    [theme.breakpoints.down('sm')]: {
+      display: 'none',
+    },
+  },
+  link: {
+    textDecoration: 'none',
+    color: '#fff',
+    fontSize: '1.1rem',
+    marginLeft: theme.spacing(2),
+    '&:hover': {
+      color: theme.palette.secondary.main,
+    },
+  },
+  mobileMenu: {
+    display: 'flex',
+    flexDirection: 'column',
+    marginTop: theme.spacing(7),
+    alignItems: 'center',
+    justifyContent: 'center',
+    [theme.breakpoints.up('sm')]: {
+      display: 'none',
+    },
+  },
+  mobileLink: {
+    textDecoration: 'none',
+    color: '#000',
+    fontSize: '1.2rem',
+    marginBottom: theme.spacing(3),
+  },
+  cartIconContainer: {
+    position: 'relative',
+    cursor: 'pointer',
+    '&:hover': {
+      '& $cartIconBadge': {
+        transform: 'scale(1.2)',
+        transition: 'all 0.2s ease-in-out',
+      },
+      '& $cartIcon': {
+        fill: theme.palette.secondary.main,
+        transition: 'all 0.2s ease-in-out',
+      },
+    },
+  },
+  cartIcon: {
+    fill: '#fff',
+    height: '2rem',
+  },
+  cartIconBadge: {
+    position: 'absolute',
+    top: '0px',
+    right: '0px',
+    background: theme.palette.secondary.main,
+    width: '20px',
+    height: '20px',
+    borderRadius: '50%',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    fontSize: '0.8rem',
+    fontWeight: 'bold',
+    color: '#fff',
+    transform: 'scale(1)',
+    transition: 'all 0.2s ease-in-out',
   },
 }));

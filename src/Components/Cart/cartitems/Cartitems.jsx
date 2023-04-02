@@ -5,13 +5,13 @@ import { Typography,Button,Card,CardActions,CardContent,CardMedia } from '@mater
 const Cartitems = ({item,handleRemovefromCart,handleUpdateqty}) => {
     const classes= useStyles();
   return (
-    <Card>
+    <Card className={classes.root}>
         <CardMedia image={item.image.url} alt={item.name} className = {classes.media} />
-        <CardContent className={classes.cardContent}>
-            <Typography variant="h4">
+        <CardContent className={classes.CardContent}>
+            <Typography variant="h4" className={classes.name}>
                 {item.name}   
             </Typography>
-            <Typography variant="h5">
+            <Typography variant="h5" className={classes.total}>
                 {item.line_total_formatted_with_symbols}   
             </Typography>
 

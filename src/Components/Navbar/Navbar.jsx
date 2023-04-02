@@ -18,9 +18,9 @@ export const Navbar  = ({totalitem}) => {
         <div className='classes.grow'></div>
         {location.pathname === '/' && (
         <div className='classes.button'>
-        <IconButton aria-label="show cart item" color="inherit" component={Link} to="/cart">
-          <Badge badgeContent={totalitem} color="secondary">
-           <ShoppingCart />
+        <IconButton className={classes.cartIconContainer} aria-label="show cart item" color="inherit" component={Link} to="/cart">
+          <Badge className={classes.cartIconBadge} badgeContent={totalitem} color="secondary">
+           <ShoppingCart className={classes.cartIcon} />
           </Badge>
         </IconButton>
         </div>)}

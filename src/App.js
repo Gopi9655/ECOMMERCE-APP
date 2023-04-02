@@ -51,7 +51,7 @@ function App() {
         <div className="App">
         <Navbar totalitem = {cart.total_items} />
         <Routes>
-        <Route  path='/'  element={<Products  products={products} Onaddtocart = {handleaddtocart}/>} />
+        <Route  path='/'  element={<Products  products={products} onAddToCart = {handleaddtocart}/>} />
         
         <Route  path='/cart' element={<Cart cart = {cart}  handleUpdateqty={handleUpdateqty} handleEmptycart={handleEmptycart} handleRemovefromCart={handleRemovefromCart}/>}/> 
         <Route  path='/checkout' element={<Checkout cart={cart} />} />
@@ -59,6 +59,7 @@ function App() {
         </Routes>
         </div>
     </Router>
+  
     
   );
 }
